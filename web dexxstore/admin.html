@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEXXSTORE — Admin Dashboard Control Panel</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Orbitron:wght@600;700;800;900&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#020409] text-slate-100 min-h-screen flex flex-col font-prompt">
+
+  <!-- Top Admin Bar -->
+  <header class="bg-[#030611] border-b border-cyan-500/30 px-6 py-4 flex items-center justify-between shadow-xl">
+    <div class="flex items-center gap-3.5">
+      <div class="logo-katana-frame" style="width: 44px; height: 44px;">
+        <img src="assets/images/logo.jpg" alt="DEXX Logo">
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-orbitron font-black text-xl text-white italic">
+            DEXX<span class="text-cyan-400">STORE</span>
+          </span>
+          <span class="px-2 py-0.5 text-[10px] font-orbitron font-bold rounded bg-red-500/20 text-red-400 border border-red-500/40">
+            ADMIN DASHBOARD
+          </span>
+        </div>
+        <p class="text-[11px] text-slate-400 font-mono">ระบบจัดการหลังบ้าน แก้ไขได้ทุกจุด (dexxstore.online)</p>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="btn-katana-outline text-xs py-2 px-4">
+        <i class="fa-solid fa-arrow-left"></i> กลับสู่หน้าร้าน
+      </a>
+      <button onclick="exportDatabaseJSON()" class="px-3.5 py-2 rounded-lg bg-slate-900 border border-cyan-500/40 text-xs font-bold text-cyan-400 hover:bg-cyan-950/40">
+        <i class="fa-solid fa-download mr-1"></i> ส่งออก JSON
+      </button>
+    </div>
+  </header>
+
+  <!-- Admin Main Workspace Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col">
+    <div class="flex-1 flex flex-col md:flex-row modal-katana-box rounded-2xl overflow-hidden border-2 border-cyan-500/40 shadow-2xl">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="w-full md:w-64 bg-[#020409]/95 border-b md:border-b-0 md:border-r border-slate-800 p-4 space-y-2 shrink-0">
+        <div class="text-[10px] uppercase font-bold text-slate-500 px-3 pt-1 pb-1 font-orbitron tracking-wider">
+          เมนูการจัดการ
+        </div>
+        <button onclick="switchAdminTab('products')" class="admin-tab-btn active" data-tab="products">
+          <i class="fa-solid fa-box-open text-cyan-400 w-5"></i>
+          <span>จัดการสินค้า (Products)</span>
+        </button>
+        <button onclick="switchAdminTab('settings')" class="admin-tab-btn" data-tab="settings">
+          <i class="fa-solid fa-sliders text-cyan-400 w-5"></i>
+          <span>ตั้งค่าหน้าเว็บ & Hero</span>
+        </button>
+        <button onclick="switchAdminTab('ticker')" class="admin-tab-btn" data-tab="ticker">
+          <i class="fa-solid fa-bullhorn text-cyan-400 w-5"></i>
+          <span>แถบประกาศวิ่ง (Ticker)</span>
+        </button>
+        <button onclick="switchAdminTab('reviews')" class="admin-tab-btn" data-tab="reviews">
+          <i class="fa-solid fa-star text-cyan-400 w-5"></i>
+          <span>จัดการรีวิว (Reviews)</span>
+        </button>
+        <button onclick="switchAdminTab('faqs')" class="admin-tab-btn" data-tab="faqs">
+          <i class="fa-solid fa-circle-question text-cyan-400 w-5"></i>
+          <span>คำถามที่พบบ่อย (FAQs)</span>
+        </button>
+        <button onclick="switchAdminTab('admins')" class="admin-tab-btn" data-tab="admins">
+          <i class="fa-solid fa-user-shield text-cyan-400 w-5"></i>
+          <span>สิทธิ์แอดมิน (Discord IDs)</span>
+        </button>
+        <button onclick="switchAdminTab('backup')" class="admin-tab-btn" data-tab="backup">
+          <i class="fa-solid fa-database text-cyan-400 w-5"></i>
+          <span>สำรอง & รีเซ็ตข้อมูล</span>
+        </button>
+      </aside>
+
+      <!-- Main Workspace -->
+      <section class="flex-1 p-6 sm:p-8 overflow-y-auto bg-[#040814]/80">
+        
+        <!-- TAB 1: Products -->
+        <div id="tab-pane-products" class="admin-tab-pane space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h3 class="text-xl font-black text-white font-orbitron">คลังสินค้า (Manage Products)</h3>
+              <p class="text-xs text-slate-400">แก้ไขชื่อ ราคา รูปภาพ รายละเอียด และแพ็กเกจสินค้า</p>
+            </div>
+            <button onclick="editProductModal(null)" class="btn-katana-primary text-xs py-2 px-4">
+              <i class="fa-solid fa-plus"></i> เพิ่มสินค้าใหม่
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>รูปภาพ</th>
+                  <th>ชื่อสินค้า & หมวดหมู่</th>
+                  <th>ราคา</th>
+                  <th>ป้ายกำกับ</th>
+                  <th class="text-right">จัดการ</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2: General Settings -->
+        <div id="tab-pane-settings" class="admin-tab-pane hidden space-y-6">
+          <div class="pb-3 border-b border-slate-800">
+            <h3 class="text-xl font-black text-white font-orbitron">ตั้งค่าข้อมูลหน้าเว็บ & Hero</h3>
+            <p class="text-xs text-slate-400">แก้ไขหัวข้อหลัก คำบรรยาย ลิงก์ Discord และตัวเลขสถิติ</p>
+          </div>
+
+          <form onsubmit="saveAdminSettings(event)" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">ชื่อเว็บไซต์ (Site Name)</label>
+                <input id="set-sitename" type="text" class="cyber-input text-xs">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">โดเมน (Domain)</label>
+                <input id="set-domain" type="text" class="cyber-input text-xs">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">ลิงก์ Discord Invite</label>
+                <input id="set-discord" type="text" class="cyber-input text-xs font-mono">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">Hero หัวข้อหลัก บรรทัดที่ 1</label>
+                <input id="set-h1" type="text" class="cyber-input text-xs">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">Hero หัวข้อหลัก บรรทัดที่ 2 (เรืองแสง)</label>
+                <input id="set-h2" type="text" class="cyber-input text-xs">
+              </div>
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-xs font-semibold text-slate-300">Hero สโลแกนรอง</label>
+              <input id="set-sub" type="text" class="cyber-input text-xs">
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-xs font-semibold text-slate-300">คำบรรยายหน้าร้าน (Hero Description)</label>
+              <textarea id="set-desc" rows="3" class="cyber-input text-xs"></textarea>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-cyan-400">สถิติ FPS Boost</label>
+                <input id="set-stat-fps" type="text" class="cyber-input text-xs text-center font-bold">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-sky-400">สถิติ Input Lag</label>
+                <input id="set-stat-lag" type="text" class="cyber-input text-xs text-center font-bold">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-emerald-400">สถิติ ค่าขาว</label>
+                <input id="set-stat-safe" type="text" class="cyber-input text-xs text-center font-bold">
+              </div>
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-indigo-400">สถิติ ลูกค้า</label>
+                <input id="set-stat-users" type="text" class="cyber-input text-xs text-center font-bold">
+              </div>
+            </div>
+
+            <div class="pt-4 flex justify-end">
+              <button type="submit" class="btn-katana-primary text-xs px-6 py-3">
+                <i class="fa-solid fa-floppy-disk"></i> บันทึกการเปลี่ยนแปลงหน้าเว็บ
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 3: Ticker -->
+        <div id="tab-pane-ticker" class="admin-tab-pane hidden space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h3 class="text-xl font-black text-white font-orbitron">แถบประกาศวิ่ง (Marquee Ticker)</h3>
+              <p class="text-xs text-slate-400">เพิ่ม/ลบ ข้อความประกาศวิ่งที่พาดผ่านกลางหน้าเว็บ</p>
+            </div>
+            <button onclick="addTickerItem()" class="btn-katana-primary text-xs py-2 px-3.5">
+              <i class="fa-solid fa-plus"></i> เพิ่มข้อความประกาศ
+            </button>
+          </div>
+
+          <div id="admin-ticker-list" class="space-y-2.5"></div>
+        </div>
+
+        <!-- TAB 4: Reviews -->
+        <div id="tab-pane-reviews" class="admin-tab-pane hidden space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h3 class="text-xl font-black text-white font-orbitron">จัดการรีวิวลูกค้า (Reviews)</h3>
+              <p class="text-xs text-slate-400">เพิ่ม ลบ หรือแก้ไขข้อความรีวิวและชื่อผู้ใช้</p>
+            </div>
+            <button onclick="addReviewItem()" class="btn-katana-primary text-xs py-2 px-3.5">
+              <i class="fa-solid fa-plus"></i> เพิ่มรีวิวใหม่
+            </button>
+          </div>
+
+          <div id="admin-reviews-list" class="space-y-3"></div>
+        </div>
+
+        <!-- TAB 5: FAQs -->
+        <div id="tab-pane-faqs" class="admin-tab-pane hidden space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h3 class="text-xl font-black text-white font-orbitron">คำถามที่พบบ่อย (FAQs)</h3>
+              <p class="text-xs text-slate-400">เพิ่มหรือแก้ไขคำถาม-คำตอบที่แสดงบนหน้าเว็บ</p>
+            </div>
+            <button onclick="addFAQItem()" class="btn-katana-primary text-xs py-2 px-3.5">
+              <i class="fa-solid fa-plus"></i> เพิ่มคำถามใหม่
+            </button>
+          </div>
+
+          <div id="admin-faqs-list" class="space-y-3"></div>
+        </div>
+
+        <!-- TAB 6: Backup & Reset -->
+        <div id="tab-pane-backup" class="admin-tab-pane hidden space-y-6">
+          <div class="pb-3 border-b border-slate-800">
+            <h3 class="text-xl font-black text-white font-orbitron">สำรอง & จัดการฐานข้อมูล (Database)</h3>
+            <p class="text-xs text-slate-400">ข้อมูลทั้งหมดถูกบันทึกและรันบนเครื่องของคุณอย่างปลอดภัย</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 text-center">
+              <i class="fa-solid fa-file-arrow-down text-3xl text-cyan-400"></i>
+              <div class="font-bold text-white text-sm">ส่งออกข้อมูล JSON</div>
+              <p class="text-xs text-slate-400">ดาวน์โหลดการตั้งค่าและรายการสินค้าทั้งหมดเก็บไว้สำรอง</p>
+              <button onclick="exportDatabaseJSON()" class="btn-katana-primary text-xs w-full py-2.5 justify-center">
+                ดาวน์โหลดไฟล์ JSON
+              </button>
+            </div>
+
+            <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 text-center">
+              <i class="fa-solid fa-file-arrow-up text-3xl text-blue-400"></i>
+              <div class="font-bold text-white text-sm">นำเข้าข้อมูล JSON</div>
+              <p class="text-xs text-slate-400">อัปโหลดไฟล์ JSON ที่สำรองไว้เพื่อกู้คืนข้อมูล</p>
+              <button onclick="importDatabaseJSON()" class="btn-katana-outline text-xs w-full py-2.5 justify-center">
+                เลือกไฟล์ JSON
+              </button>
+            </div>
+
+            <div class="p-5 rounded-xl bg-slate-900 border border-red-500/30 space-y-3 text-center">
+              <i class="fa-solid fa-rotate-left text-3xl text-red-400"></i>
+              <div class="font-bold text-white text-sm">รีเซ็ตเป็นค่าเริ่มต้น</div>
+              <p class="text-xs text-slate-400">ล้างการแก้ไขทั้งหมดและนำข้อมูลออริจินัลของ DEXXSTORE กลับมา</p>
+              <button onclick="resetToDefaultDB()" class="px-4 py-2.5 text-xs font-bold rounded-lg bg-red-500/20 text-red-400 border border-red-500/50 hover:bg-red-500/40 w-full">
+                รีเซ็ตค่าเริ่มต้น
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 7: Admin Discord Permissions -->
+        <div id="tab-pane-admins" class="admin-tab-pane hidden space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h3 class="text-xl font-black text-white font-orbitron">จัดการสิทธิ์แอดมิน (Admin Discord IDs)</h3>
+              <p class="text-xs text-slate-400">กำหนด Discord User ID ที่ได้รับสิทธิ์เข้าถึงแผงควบคุมหลังบ้าน DEXXSTORE</p>
+            </div>
+          </div>
+
+          <!-- Add New Admin ID Form -->
+          <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-cyan-500/30 space-y-3">
+            <label class="text-xs font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-user-plus text-cyan-400"></i> เพิ่ม Discord ID ผู้ดูแลระบบใหม่
+            </label>
+            <div class="flex flex-col sm:flex-row items-center gap-2.5">
+              <input id="new-admin-discord-id" type="text" placeholder="ระบุ Discord User ID (เช่น 491549619587907585)" class="cyber-input text-xs font-mono flex-1">
+              <button onclick="addAdminDiscordId()" class="btn-katana-primary text-xs py-2.5 px-5 w-full sm:w-auto shrink-0 justify-center">
+                <i class="fa-solid fa-shield-halved"></i> เพิ่มสิทธิ์ Admin
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              <i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i> วิธีดู Discord User ID: ใน Discord ไปที่ Settings -> Advanced -> เปิด Developer Mode -> คลิกขวาที่ชื่อโปรไฟล์แล้วกด "Copy User ID"
+            </p>
+          </div>
+
+          <!-- Admin List -->
+          <div class="space-y-3">
+            <div class="text-xs font-bold text-slate-300 font-orbitron flex items-center justify-between">
+              <span>รายชื่อ Discord ID ที่ได้รับสิทธิ์ Admin ปัจจุบัน</span>
+              <span class="text-[10px] text-cyan-400 font-mono">Real-time Permissions</span>
+            </div>
+            <div id="admin-discord-ids-list" class="space-y-2.5"></div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Product Editor Modal -->
+  <div id="product-editor-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto modal-katana-box p-6 sm:p-8 space-y-5">
+      <button data-close-modal="product-editor-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="space-y-1">
+        <h3 class="text-xl font-black text-white font-orbitron italic">แก้ไข / เพิ่มสินค้า DEXXSTORE</h3>
+        <p class="text-xs text-slate-400">กรอกข้อมูลสินค้าเพื่ออัปเดตขึ้นหน้าร้านทันที</p>
+      </div>
+
+      <form id="product-edit-form" onsubmit="saveProductForm(event)" class="space-y-4">
+        <input type="hidden" id="prod-edit-id">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ชื่อสินค้า (Product Name)</label>
+            <input id="prod-edit-name" type="text" required class="cyber-input text-xs" placeholder="เช่น DEXX V3 (PRO)">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">หมวดหมู่ (Category ID)</label>
+            <select id="prod-edit-category" class="cyber-input text-xs">
+              <option value="fivem">FiveM & GTA V (fivem)</option>
+              <option value="cpu">CPU & Hardware (cpu)</option>
+              <option value="tweak">Windows & Network (tweak)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ป้ายหมวดหมู่แสดง</label>
+            <input id="prod-edit-catlabel" type="text" class="cyber-input text-xs" placeholder="เช่น FiveM & GTA V">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-cyan-400">ราคาตัวเลข (บาท)</label>
+            <input id="prod-edit-price" type="number" required class="cyber-input text-xs font-orbitron font-bold" placeholder="299">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ป้ายราคาแสดง</label>
+            <input id="prod-edit-pricelabel" type="text" class="cyber-input text-xs font-orbitron" placeholder="฿299">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ป้าย Badge เด่น (เช่น 🔥 ยอดนิยม)</label>
+            <input id="prod-edit-badge" type="text" class="cyber-input text-xs">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">URL / พาธรูปภาพโปสเตอร์</label>
+            <input id="prod-edit-image" type="text" required class="cyber-input text-xs font-mono" placeholder="assets/images/product-dexxv3.jpg">
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-300">คำโปรยใต้ชื่อ (Subtitle)</label>
+          <input id="prod-edit-subtitle" type="text" class="cyber-input text-xs">
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-300">สโลแกนสินค้า (Tagline)</label>
+          <input id="prod-edit-tagline" type="text" class="cyber-input text-xs">
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-300">รายการฟีเจอร์เด่น (1 บรรทัดต่อ 1 ฟีเจอร์)</label>
+          <textarea id="prod-edit-features" rows="4" class="cyber-input text-xs font-mono"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-3 border-t border-slate-800">
+          <button type="button" data-close-modal="product-editor-modal" class="btn-katana-outline text-xs px-5 py-2.5">
+            ยกเลิก
+          </button>
+          <button type="submit" class="btn-katana-primary text-xs px-6 py-2.5">
+            <i class="fa-solid fa-floppy-disk"></i> บันทึกข้อมูลสินค้า
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div id="toast-banner" class="toast-katana">
+    <i id="toast-icon" class="fa-solid fa-circle-check text-cyan-400 text-lg"></i>
+    <span id="toast-message" class="text-xs font-semibold"></span>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Auto switch to products tab when loading admin.html
+    document.addEventListener("DOMContentLoaded", () => {
+      // Auto authorize as Admin for admin.html page
+      if (!store.isAdmin()) {
+        store.setUser({
+          id: "admin-root",
+          username: "DEXX Administrator",
+          discriminator: "0001",
+          avatar: "assets/images/logo.jpg",
+          role: "admin"
+        });
+      }
+      switchAdminTab("products");
+    });
+  </script>
+</body>
+</html>

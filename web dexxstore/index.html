@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEXXSTORE — คมดั่งคมดาบ ไวดั่งสายฟ้า | ตัวช่วยปรับแต่งระบบเกม FiveM ค่าขาว 100%</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="DEXXSTORE (dexxstore.online) - ศูนย์รวมตัวช่วยปรับแต่งระบบเกม FiveM, GTA V, DEXX V3, DEXX 9800X3D, Gpedit Tweak ค่าขาว 100% คมกริบ ไวเหมือนสายฟ้า เพิ่ม FPS ลด Input Lag เซ็ตอัพให้โดยตรง 24 ชม.">
+  <meta name="keywords" content="DEXXSTORE, dexxstore.online, FiveM Tweak, Boost FPS, ปรับแต่ง FiveM, ค่าขาว 100%, DEXX V3, DEXX 9800X3D, Gpedit Tweak, Windows Gaming, ลด Input Lag">
+  <meta name="author" content="DEXXSTORE Team">
+  <link rel="canonical" href="https://dexxstore.online/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dexxstore.online/">
+  <meta property="og:title" content="DEXXSTORE — คมดั่งคมดาบ ไวดั่งสายฟ้า | ร้านปรับแต่ง FiveM & Windows Gaming">
+  <meta property="og:description" content="ปลดล็อคขีดจำกัด เพิ่ม FPS ลด Input Lag ลื่นไหลทุกการสะบัดดาบ ค่าขาว 100% ปลอดภัย ไม่โดนแบน ดูแล 24 ชม.">
+  <meta property="og:image" content="assets/images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://dexxstore.online/">
+  <meta name="twitter:title" content="DEXXSTORE — คมกริบ ไวดั่งสายฟ้า | ค่าขาว 100%">
+  <meta name="twitter:description" content="DEXX V3, DEXX 9800X3D, Gpedit Network Tweak เล่นง่ายขึ้น ลื่นหัวแตก">
+  <meta name="twitter:image" content="assets/images/logo.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Orbitron:wght@600;700;800;900&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dexx: {
+              cyan: '#00f0ff',
+              blue: '#0070f3',
+              cobalt: '#0051ff',
+              purple: '#9333ea',
+              dark: '#020409',
+              card: '#070d1a',
+              green: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Katana Theme CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="text-slate-100 antialiased selection:bg-cyan-400 selection:text-black relative">
+
+  <!-- Interactive Katana & Lightning Particle Canvas -->
+  <canvas id="katana-particles-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-70"></canvas>
+
+  <!-- Top Announcement Bar -->
+  <div class="relative z-20 bg-gradient-to-r from-[#030611] via-[#050f24] to-[#030611] border-b border-cyan-500/30 py-2 px-4 text-xs font-medium text-slate-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-400/30 font-bold font-orbitron">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          DEXX ONLINE
+        </span>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline text-slate-300">
+          <i class="fa-solid fa-bolt text-cyan-400 mr-1"></i> เว็บไซต์ทางการ <strong class="text-white">DEXXSTORE</strong> (dexxstore.online) — ค่าขาว 100% คมกริบ ไวดั่งสายฟ้า
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="hover:text-cyan-400 flex items-center gap-1.5 transition-colors font-semibold">
+          <i class="fa-brands fa-discord text-indigo-400 text-sm"></i>
+          <span>discord.gg/qhNQGnuDtu</span>
+        </a>
+        <button onclick="copyDiscordLink()" class="hidden md:inline-flex items-center gap-1 text-slate-400 hover:text-cyan-400 transition-colors" title="คัดลอกลิงก์ Discord">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-[#020409]/92 backdrop-blur-md border-b border-cyan-500/25 shadow-2xl shadow-black/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Brand matching the Katana character -->
+      <a href="#top" class="flex items-center gap-3.5 group">
+        <div class="logo-katana-frame group-hover:border-cyan-300 transition-colors">
+          <img src="assets/images/logo.jpg" alt="DEXXSTORE Mascot" class="select-none">
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-orbitron font-black text-2xl tracking-wider text-white italic group-hover:text-cyan-400 transition-colors">
+              DEXX<span class="text-cyan-400">STORE</span>
+            </span>
+            <span class="px-2 py-0.5 text-[10px] font-orbitron font-bold rounded bg-cyan-500/20 text-cyan-300 border border-cyan-400/40">
+              .ONLINE
+            </span>
+          </div>
+          <p class="text-[11px] text-cyan-400/80 font-rajdhani font-semibold tracking-widest uppercase">
+            ⚡ LIGHTNING PERFORMANCE GAMING
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-300">
+        <a href="#top" class="hover:text-cyan-400 transition-colors py-1">หน้าแรก</a>
+        <a href="#products" class="hover:text-cyan-400 transition-colors py-1">สินค้าทั้งหมด</a>
+        <a href="#comparison" class="hover:text-cyan-400 transition-colors py-1">เปรียบเทียบ</a>
+        <a href="#why-us" class="hover:text-cyan-400 transition-colors py-1">ทำไมต้อง DEXX</a>
+        <a href="#reviews" class="hover:text-cyan-400 transition-colors py-1">รีวิวลูกค้า</a>
+        <a href="#faq" class="hover:text-cyan-400 transition-colors py-1">FAQ</a>
+      </nav>
+
+      <!-- Auth & Action Buttons -->
+      <div class="hidden sm:flex items-center gap-3">
+        <!-- Dynamic Discord Auth & Admin Container -->
+        <div id="nav-auth-container"></div>
+
+        <a href="#products" class="btn-katana-primary text-xs py-2 px-4">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>เลือกซื้อสินค้า</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl border border-cyan-500/40 bg-slate-900/60 text-slate-300 hover:text-cyan-400 transition-colors" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-cyan-500/30 bg-[#030611]/98 px-6 py-6 space-y-4">
+      <!-- Mobile Auth Container -->
+      <div id="mobile-auth-container" class="pb-2 border-b border-slate-800"></div>
+
+      <div class="flex flex-col space-y-3 font-semibold text-slate-300">
+        <a href="#top" class="mobile-nav-link hover:text-cyan-400 py-2 border-b border-slate-800">หน้าแรก</a>
+        <a href="#products" class="mobile-nav-link hover:text-cyan-400 py-2 border-b border-slate-800">สินค้าทั้งหมด</a>
+        <a href="#comparison" class="mobile-nav-link hover:text-cyan-400 py-2 border-b border-slate-800">เปรียบเทียบความแรง</a>
+        <a href="#why-us" class="mobile-nav-link hover:text-cyan-400 py-2 border-b border-slate-800">ทำไมต้อง DEXX</a>
+        <a href="#reviews" class="mobile-nav-link hover:text-cyan-400 py-2 border-b border-slate-800">รีวิวลูกค้า</a>
+        <a href="#faq" class="mobile-nav-link hover:text-cyan-400 py-2 border-b border-slate-800">คำถามที่พบบ่อย</a>
+      </div>
+      <div class="pt-3 flex flex-col gap-3">
+        <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="btn-katana-discord text-sm justify-center w-full">
+          <i class="fa-brands fa-discord"></i> เข้าร่วม Discord Server
+        </a>
+        <a href="#products" class="btn-katana-primary text-sm justify-center w-full">
+          <i class="fa-solid fa-cart-shopping"></i> ดูสินค้าทั้งหมด
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section Designed Around the Katana Anime Logo -->
+  <section id="top" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden z-10">
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-gradient-to-r from-cyan-500/15 via-blue-600/20 to-cyan-400/15 blur-[150px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Badges -->
+      <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+        <span class="badge-whitelist">
+          <i class="fa-solid fa-shield-halved"></i>
+          ค่าขาว 100% · ปลอดภัย ไม่โดนแบน
+        </span>
+        <span class="diamond-tag">
+          <i class="fa-solid fa-bolt text-cyan-400"></i>
+          FIVEM / GTA V / ONLINE GAMES OPTIMIZATION
+        </span>
+        <span class="diamond-tag">
+          <i class="fa-solid fa-screwdriver-wrench text-blue-400"></i>
+          REMOTE SETUP ฟรี 3-5 นาที
+        </span>
+      </div>
+
+      <!-- Main Headline & Visual Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Hero Copy & CTA -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+          
+          <div class="space-y-3">
+            <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black font-orbitron tracking-tight leading-none italic">
+              <span id="hero-h1" class="text-white">คมดั่งคมดาบ</span><br>
+              <span id="hero-h2" class="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent text-glow-katana">
+                ไวดั่งสายฟ้า
+              </span>
+            </h1>
+            <p id="hero-sub" class="text-xl sm:text-2xl font-extrabold text-slate-200 font-kanit">
+              DEXXSTORE — ปลดล็อคขีดจำกัดความลื่นไหล FiveM & Online Games
+            </p>
+          </div>
+
+          <p id="hero-desc" class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            ตัวช่วยปรับแต่งระบบเกม FiveM, GTA V และ Online Games ด้วยเทคโนโลยีจูนเนอร์ขั้นสูง ลด Input Lag (0.5ms feel), เพิ่ม FPS สเปรย์ปืนตรง วงนัวตัวไหล, ปรับ Network TCP ปิงนิ่งสนิท ค่าขาว 100% ปลอดภัยทุกเซิร์ฟเวอร์
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#products" class="btn-katana-primary w-full sm:w-auto px-8 py-4 text-base">
+              <i class="fa-solid fa-fire text-black"></i>
+              <span>ดูสินค้าและราคาเริ่มต้น ฿250</span>
+            </a>
+            <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="btn-katana-discord w-full sm:w-auto px-7 py-4 text-base">
+              <i class="fa-brands fa-discord text-xl"></i>
+              <span>เข้า Discord Support 24 ชม.</span>
+            </a>
+          </div>
+
+          <!-- Quick Stat Counters -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-cyan-500/20">
+            <div class="p-3.5 bg-slate-950/70 border border-cyan-500/30 text-center lg:text-left katana-card">
+              <div id="stat-fps" class="font-orbitron font-black text-2xl text-cyan-400">+45-75%</div>
+              <div class="text-xs text-slate-400 font-semibold mt-0.5">FPS Boost</div>
+            </div>
+            <div class="p-3.5 bg-slate-950/70 border border-blue-500/30 text-center lg:text-left katana-card">
+              <div id="stat-lag" class="font-orbitron font-black text-2xl text-sky-400">0.5 ms</div>
+              <div class="text-xs text-slate-400 font-semibold mt-0.5">Input Response</div>
+            </div>
+            <div class="p-3.5 bg-slate-950/70 border border-emerald-500/30 text-center lg:text-left katana-card">
+              <div id="stat-safe" class="font-orbitron font-black text-2xl text-emerald-400">100%</div>
+              <div class="text-xs text-slate-400 font-semibold mt-0.5">ค่าขาว ปลอดภัย</div>
+            </div>
+            <div class="p-3.5 bg-slate-950/70 border border-indigo-500/30 text-center lg:text-left katana-card">
+              <div id="stat-users" class="font-orbitron font-black text-2xl text-indigo-400">3,500+</div>
+              <div class="text-xs text-slate-400 font-semibold mt-0.5">ลูกค้าไว้วางใจ</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Epic Widescreen Cinema Artwork Presentation -->
+        <div class="lg:col-span-6 relative">
+          
+          <div class="hero-art-stage group">
+            <img src="assets/images/logo.jpg" alt="DEXX Anime Katana Lightning Mascot" class="select-none">
+            
+            <div class="blade-sheen"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#020409] via-transparent to-transparent opacity-85"></div>
+
+            <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#030611]/90 backdrop-blur-md border border-cyan-500/40">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+                  <span class="font-orbitron font-bold text-xs tracking-wider text-cyan-300">
+                    DEXX LIGHTNING PERFORMANCE ENGINE
+                  </span>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+                  WHITELIST SAFE
+                </span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                พลังสายฟ้าคมกริบ ปลดล็อคความแรงระดับ System Hardware ตอบสนองเร็วทันใจ สเปรย์ปืนนิ่ง หัวแข็ง วงนัวตัวไหล
+              </p>
+            </div>
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="absolute -top-4 -left-4 sm:-left-6 p-3 rounded-xl bg-[#030611]/95 backdrop-blur-md border border-cyan-400/60 shadow-[0_0_25px_rgba(0,240,255,0.4)] animate-float-slow flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white font-orbitron">LIGHTNING RESPONSE</div>
+              <div class="text-[11px] text-cyan-400">ตอบสนองไว คมกริบทุกช็อต</div>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-4 -right-2 sm:-right-4 p-3 rounded-xl bg-[#030611]/95 backdrop-blur-md border border-blue-500/60 shadow-[0_0_25px_rgba(0,112,243,0.4)] animate-float-slow flex items-center gap-3" style="animation-delay: 2.2s;">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white font-orbitron">100% WHITELIST</div>
+              <div class="text-[11px] text-emerald-400">ค่าขาว ผ่านทุกเซิร์ฟเวอร์</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Marquee Ticker Banner -->
+  <div class="relative z-10 bg-[#02050c] border-y border-cyan-500/25 py-3 marquee-wrapper">
+    <div id="marquee-track" class="marquee-track flex items-center gap-12 text-sm font-semibold tracking-wide text-slate-300"></div>
+  </div>
+
+  <!-- Katana Slash Divider -->
+  <div class="katana-slash-divider max-w-7xl mx-auto"></div>
+
+  <!-- Products Catalog Section -->
+  <section id="products" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center space-y-4 max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/40 text-cyan-400 text-xs font-bold tracking-wider uppercase font-orbitron">
+          <i class="fa-solid fa-bolt"></i> OFFICIAL PRODUCTS & TWEAKS
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-orbitron italic">
+          คลังสินค้า <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-glow-katana">DEXXSTORE</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          ปรับแต่งระดับเทพ คมกริบทุกช็อต ค่าขาว 100% พร้อมบริการรีโมทเซ็ตอัพฟรีโดยทีมงาน
+        </p>
+
+        <!-- Category Filter Tabs with Katana Chamfered Edge -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5 pt-4">
+          <button class="filter-tab-btn active-tab px-4 py-2 text-sm font-bold border border-cyan-400 text-cyan-400 bg-cyan-950/40 transition-all font-kanit" data-filter="all" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-layer-group mr-1.5"></i> ทั้งหมด
+          </button>
+          <button class="filter-tab-btn px-4 py-2 text-sm font-bold border border-slate-800 text-slate-400 bg-slate-900/40 hover:text-white hover:border-slate-700 transition-all font-kanit" data-filter="fivem" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-gamepad mr-1.5"></i> FiveM & GTA V
+          </button>
+          <button class="filter-tab-btn px-4 py-2 text-sm font-bold border border-slate-800 text-slate-400 bg-slate-900/40 hover:text-white hover:border-slate-700 transition-all font-kanit" data-filter="cpu" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-microchip mr-1.5"></i> CPU & Hardware
+          </button>
+          <button class="filter-tab-btn px-4 py-2 text-sm font-bold border border-slate-800 text-slate-400 bg-slate-900/40 hover:text-white hover:border-slate-700 transition-all font-kanit" data-filter="tweak" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-gears mr-1.5"></i> Windows & Network
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Products Grid (4 Products) -->
+      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"></div>
+
+      <!-- Combo Pack Callout -->
+      <div class="mt-14 p-8 rounded-2xl bg-gradient-to-r from-[#030611] via-[#08152e] to-[#030611] border-2 border-cyan-500/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left katana-card">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/10 text-cyan-400 text-xs font-bold border border-cyan-400/30">
+            <i class="fa-solid fa-gem"></i> ALL-IN-ONE DEXX ULTIMATE COMBO
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-black text-white font-orbitron italic">
+            ต้องการจัดเต็มทั้งระบบ (V3 + 9800X3D + Gpedit)?
+          </h3>
+          <p class="text-slate-300 text-sm max-w-xl">
+            สอบถามแพ็กเกจพิเศษเหมาครบวงจรในราคาลดพิเศษ พร้อมรับการซัพพอร์ต VIP Remote Setup ดูแลคอมของคุณจนจบ
+          </p>
+        </div>
+        <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="btn-katana-discord px-8 py-3.5 whitespace-nowrap text-base">
+          <i class="fa-brands fa-discord text-xl"></i>
+          <span>ทักแอดมินใน Discord</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Katana Slash Divider -->
+  <div class="katana-slash-divider max-w-7xl mx-auto"></div>
+
+  <!-- Comparison Section (Before vs After) -->
+  <section id="comparison" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-4 max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-sky-400 text-xs font-bold tracking-wider uppercase font-orbitron">
+          <i class="fa-solid fa-chart-line"></i> BENCHMARK & COMPARISON
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-orbitron italic">
+          ก่อนปรับแต่ง <span class="text-slate-500">VS</span> <span class="text-cyan-400 text-glow-katana">หลังใช้ DEXX</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          เห็นผลชัดเจนตั้งแต่วินาทีแรกที่เข้าเกม ทดสอบจริงบนเซิร์ฟเวอร์ FiveM และเกมการแข่งขันระดับทัวร์นาเมนต์
+        </p>
+
+        <!-- Toggle Switcher for Mobile / Quick View -->
+        <div class="inline-flex p-1.5 rounded-xl bg-slate-900 border border-slate-800 gap-2 mt-4">
+          <button id="compare-btn-after" class="px-5 py-2 rounded-lg text-sm font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-400 transition-all font-kanit">
+            <i class="fa-solid fa-bolt mr-1.5"></i> หลังปรับ DEXX (ผลลัพธ์)
+          </button>
+          <button id="compare-btn-before" class="px-5 py-2 rounded-lg text-sm font-bold text-slate-400 border border-transparent transition-all font-kanit">
+            <i class="fa-solid fa-triangle-exclamation mr-1.5"></i> ก่อนปรับแต่ง (เดิมๆ)
+          </button>
+        </div>
+      </div>
+
+      <!-- Comparative Side-by-Side Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Before Box -->
+        <div id="compare-view-before" class="p-8 rounded-2xl bg-red-950/20 border border-red-500/30 space-y-6 katana-card">
+          <div class="flex items-center justify-between pb-4 border-b border-red-500/20">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-xmark"></i>
+              </span>
+              <div>
+                <h3 class="font-orbitron font-bold text-xl text-red-400">ก่อนปรับแต่ง (Windows ทั่วไป)</h3>
+                <p class="text-xs text-slate-400">ระบบเดิมๆ ไม่ผ่านการ Optimize</p>
+              </div>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded bg-red-500/20 text-red-300">หน่วง / แลค</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-slate-400">FiveM กลางเมือง / ตลาด</div>
+                <div class="text-lg font-bold text-slate-300">65 - 85 FPS (แกว่งเวลาเจอนัว)</div>
+              </div>
+              <span class="text-red-400 font-bold text-sm"><i class="fa-solid fa-arrow-down"></i> เฟรมดรอป</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-slate-400">Input Lag (การตอบสนองเมาส์/คีย์)</div>
+                <div class="text-lg font-bold text-slate-300">18 - 26 ms (รู้สึกหน่วง ช้ากว่าจอ)</div>
+              </div>
+              <span class="text-red-400 font-bold text-sm"><i class="fa-solid fa-clock"></i> ช้ากว่า 1 จังหวะ</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-slate-400">Network Ping & Jitter</div>
+                <div class="text-lg font-bold text-slate-300">35 - 55 ms (ปิงแกว่ง หลุดบ่อย)</div>
+              </div>
+              <span class="text-red-400 font-bold text-sm"><i class="fa-solid fa-triangle-exclamation"></i> ไม่เสถียร</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-slate-400">Windows Background Services</div>
+                <div class="text-lg font-bold text-slate-300">140+ Services กินแรม 6-8 GB</div>
+              </div>
+              <span class="text-red-400 font-bold text-sm"><i class="fa-solid fa-server"></i> แรมตัน</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- After Box -->
+        <div id="compare-view-after" class="p-8 rounded-2xl bg-cyan-950/20 border-2 border-cyan-400 shadow-[0_0_30px_rgba(0,240,255,0.2)] space-y-6 katana-card">
+          <div class="flex items-center justify-between pb-4 border-b border-cyan-400/30">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-cyan-400 text-slate-950 flex items-center justify-center text-xl shadow-[0_0_15px_rgba(0,240,255,0.6)]">
+                <i class="fa-solid fa-check"></i>
+              </span>
+              <div>
+                <h3 class="font-orbitron font-bold text-xl text-cyan-400">หลังใช้ DEXXSTORE TWEAK</h3>
+                <p class="text-xs text-slate-400">ปรับแต่งสมบูรณ์แบบ ค่าขาว 100%</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold px-3 py-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">ลื่นหัวแตก</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/30 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-cyan-400 font-medium">FiveM กลางเมือง / ตลาด</div>
+                <div class="text-lg font-black text-white font-orbitron">135 - 180+ FPS <span class="text-emerald-400 text-sm">(+70%)</span></div>
+              </div>
+              <span class="text-emerald-400 font-bold text-sm flex items-center gap-1"><i class="fa-solid fa-arrow-up"></i> ลื่นไหลขั้นสุด</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/30 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-cyan-400 font-medium">Input Lag (การตอบสนองเมาส์/คีย์)</div>
+                <div class="text-lg font-black text-white font-orbitron">3.5 - 6.8 ms <span class="text-cyan-400 text-sm">(ลดฮวบ)</span></div>
+              </div>
+              <span class="text-cyan-400 font-bold text-sm flex items-center gap-1"><i class="fa-solid fa-bolt"></i> ติดมือทันที</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/30 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-cyan-400 font-medium">Network Ping & Jitter</div>
+                <div class="text-lg font-black text-white font-orbitron">12 - 18 ms <span class="text-emerald-400 text-sm">(นิ่งสนิท)</span></div>
+              </div>
+              <span class="text-emerald-400 font-bold text-sm flex items-center gap-1"><i class="fa-solid fa-circle-check"></i> เสถียร ไม่หลุด</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/30 flex items-center justify-between">
+              <div>
+                <div class="text-xs text-cyan-400 font-medium">Windows Background Services</div>
+                <div class="text-lg font-black text-white font-orbitron">Debloated 35+ บริการ แรมเหลือบาน</div>
+              </div>
+              <span class="text-sky-400 font-bold text-sm flex items-center gap-1"><i class="fa-solid fa-memory"></i> คลีนระบบ 100%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Katana Slash Divider -->
+  <div class="katana-slash-divider max-w-7xl mx-auto"></div>
+
+  <!-- Why Choose DEXXSTORE Section -->
+  <section id="why-us" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-4 max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold tracking-wider uppercase font-orbitron">
+          <i class="fa-solid fa-award"></i> WHY CHOOSE DEXXSTORE
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-orbitron italic">
+          ทำไมเกมเมอร์ถึงเลือก <span class="bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 bg-clip-text text-transparent text-glow-katana">DEXXSTORE</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          เรามุ่งมั่นพัฒนาการตั้งค่าที่ปลอดภัยที่สุด ประสิทธิภาพสูงสุด และบริการหลังการขายที่ดีที่สุด
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="p-8 katana-card space-y-4">
+          <div class="w-14 h-14 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">ค่าขาว 100% ปลอดภัย ไม่โดนแบน</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            เป็นการปรับแต่งระดับ Windows Registry, Group Policy และ Network Parameters โดยไม่แตะต้องไฟล์เกม ไม่ใช่ Cheats หรือ Bots ผ่านการตรวจสอบทุกเซิร์ฟเวอร์
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-8 katana-card space-y-4">
+          <div class="w-14 h-14 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-2xl" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Remote Setup โดยตรง ไม่ต้องทำเอง</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            ไม่ต้องมีความรู้เรื่องคอมพิวเตอร์ ทีมงานแอดมินผู้เชี่ยวชาญจะนัดรีโมทเข้าเครื่องผ่าน UltraViewer หรือ AnyDesk ตั้งค่าให้เรียบร้อยภายใน 3-5 นาที
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-8 katana-card space-y-4">
+          <div class="w-14 h-14 bg-blue-500/10 border border-blue-500/30 text-sky-400 flex items-center justify-center text-2xl" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Ultra Low Input Lag</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            ลดความหน่วงของการคลิกเมาส์ คีย์บอร์ด และการแสดงผลของหน้าจอ (0.5ms feel) เล็งเป้าติดมือ สเปรย์ปืนนิ่ง หัวแข็ง วงนัวตัวไหล
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="p-8 katana-card space-y-4">
+          <div class="w-14 h-14 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-2xl" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Network & Ping Optimization</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            ปรับจูน TCP/IP, MTU, DNS และปิด Nagle Algorithm ลดอาการกระตุก Packet Loss และลดอาการดีเลย์ของการเชื่อมต่อไปยังเซิร์ฟเวอร์
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="p-8 katana-card space-y-4">
+          <div class="w-14 h-14 bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-solid fa-infinity"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Lifetime & อัปเดตฟรี</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            สินค้าส่วนใหญ่เป็นสิทธิ์ตลอดชีพ ซื้อครั้งเดียวใช้ได้ยาว พร้อมกลุ่ม Discord พิเศษสำหรับรับแพตช์อัปเดตและคำแนะนำใหม่ๆ อยู่เสมอ
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="p-8 katana-card space-y-4">
+          <div class="w-14 h-14 bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center text-2xl" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+            <i class="fa-brands fa-discord"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Community & Support 24/7</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            มีคอมมูนิตี้ใน Discord สมาชิกหลายพันคน พูดคุย ปรึกษา และเปิดตั๋ว Support เมื่อมีปัญหา ทีมงานพร้อมแก้ไขให้รวดเร็วทันใจ
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Supported Games Section -->
+  <section class="py-16 bg-[#030611] border-y border-cyan-500/20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+      <h3 class="text-sm font-bold text-cyan-400 tracking-wider font-orbitron uppercase">
+        ⚡ รองรับทุกเกมออนไลน์ยอดนิยม และระบบปฏิบัติการ Windows
+      </h3>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold text-slate-300">
+        <span class="diamond-tag"><i class="fa-solid fa-gamepad text-cyan-400"></i> FiveM</span>
+        <span class="diamond-tag"><i class="fa-solid fa-car text-blue-400"></i> GTA V Online</span>
+        <span class="diamond-tag"><i class="fa-solid fa-crosshairs text-sky-400"></i> Valorant</span>
+        <span class="diamond-tag"><i class="fa-solid fa-gun text-amber-400"></i> Apex Legends</span>
+        <span class="diamond-tag"><i class="fa-solid fa-shield text-purple-400"></i> CS2 / CS:GO</span>
+        <span class="diamond-tag"><i class="fa-solid fa-parachute-box text-orange-400"></i> PUBG Battlegrounds</span>
+        <span class="diamond-tag"><i class="fa-solid fa-person-rifle text-emerald-400"></i> Warzone</span>
+        <span class="diamond-tag"><i class="fa-brands fa-windows text-blue-400"></i> Windows 10 (ทุกรุ่น)</span>
+        <span class="diamond-tag"><i class="fa-brands fa-windows text-cyan-400"></i> Windows 11 (22H2 / 23H2 / 24H2)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section id="reviews" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-4 max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold tracking-wider uppercase font-orbitron">
+          <i class="fa-solid fa-star"></i> REVIEWS & FEEDBACK
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-orbitron italic">
+          เสียงจากผู้ใช้งานจริง <span class="text-cyan-400 text-glow-katana">3,500+ คน</span>
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          รีวิวจริงจากผู้เล่น FiveM และสายเกมมิ่งที่สัมผัสความลื่นไหลด้วยตัวเอง
+        </p>
+
+        <div class="flex items-center justify-center gap-3 pt-3">
+          <div class="flex text-amber-400 text-lg">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span class="text-xl font-bold font-orbitron text-white">5.0 / 5.0</span>
+          <span class="text-sm text-slate-400">| ความพึงพอใจ 100%</span>
+        </div>
+      </div>
+
+      <!-- Dynamic Reviews Grid -->
+      <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    </div>
+  </section>
+
+  <!-- Katana Slash Divider -->
+  <div class="katana-slash-divider max-w-7xl mx-auto"></div>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 relative z-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-4 mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold tracking-wider uppercase font-orbitron">
+          <i class="fa-solid fa-circle-question"></i> FREQUENTLY ASKED QUESTIONS
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-orbitron italic">
+          คำถามที่พบบ่อย (FAQ)
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          มีข้อสงสัยเพิ่มเติม? สอบถามทีมงานผ่าน Discord ได้ตลอด 24 ชั่วโมง
+        </p>
+      </div>
+
+      <!-- Dynamic FAQ Container -->
+      <div id="faq-container" class="space-y-4"></div>
+
+    </div>
+  </section>
+
+  <!-- Discord Community CTA Banner Matching Katana Character Theme -->
+  <section id="discord" class="py-20 relative overflow-hidden z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="p-8 sm:p-14 bg-gradient-to-r from-[#030611] via-[#0b1736] to-[#030611] border-2 border-cyan-500/50 shadow-[0_0_60px_rgba(0,240,255,0.25)] text-center space-y-6 katana-card">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 text-xs font-bold font-orbitron">
+          <i class="fa-brands fa-discord text-base"></i> DEXX COMMUNITY
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-orbitron italic">
+          เข้าร่วมคอมมูนิตี้ <span class="text-cyan-400 text-glow-katana">DEXXSTORE</span>
+        </h2>
+
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          พูดคุย ปรึกษาเทคนิค ปลดล็อคความแรง รับข่าวสารอัปเดตเวอร์ชันใหม่ก่อนใคร และบริการ Support 24 ชั่วโมงจากทีมงาน
+        </p>
+
+        <!-- Stats Bar -->
+        <div class="flex flex-wrap items-center justify-center gap-8 py-4 text-slate-300">
+          <div class="flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full bg-cyan-400 animate-ping"></span>
+            <span class="font-orbitron font-bold text-white text-lg">1,200+</span>
+            <span class="text-xs text-slate-400">สมาชิกออนไลน์</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-users text-indigo-400"></i>
+            <span class="font-orbitron font-bold text-white text-lg">5,800+</span>
+            <span class="text-xs text-slate-400">สมาชิกรวม</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-bolt text-cyan-400"></i>
+            <span class="font-orbitron font-bold text-white text-lg">24 / 7</span>
+            <span class="text-xs text-slate-400">ดูแลตลอดเวลา</span>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3">
+          <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="btn-katana-discord text-base px-9 py-4 shadow-[0_0_30px_rgba(88,101,242,0.6)]">
+            <i class="fa-brands fa-discord text-2xl"></i>
+            <span>เข้าร่วม Discord ตอนนี้ (คลิก)</span>
+          </a>
+          <button onclick="copyDiscordLink()" class="btn-katana-outline text-sm px-6 py-4">
+            <i class="fa-regular fa-copy"></i>
+            <span>คัดลอกลิงก์ Discord</span>
+          </button>
+        </div>
+
+        <div class="text-xs text-slate-400 pt-2">
+          ลิงก์ถาวร: <code class="px-2 py-1 bg-black/50 text-cyan-400 border border-slate-800 font-mono">https://discord.gg/qhNQGnuDtu</code>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#020307] border-t border-cyan-500/20 py-12 text-slate-400 text-sm relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- Brand Info -->
+        <div class="space-y-3 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="logo-katana-frame" style="width: 44px; height: 44px;">
+              <img src="assets/images/logo.jpg" alt="DEXX Logo">
+            </div>
+            <span class="font-orbitron font-black text-xl text-white italic">
+              DEXX<span class="text-cyan-400">STORE</span>
+            </span>
+          </div>
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            ศูนย์รวมตัวช่วยปรับแต่งระบบเกม FiveM, GTA V และ Windows Gaming Tweaks คมดั่งคมดาบ ไวดั่งสายฟ้า ค่าขาว 100% ไม่โดนแบน ยกระดับการเล่นเกมให้ลื่นไหลที่สุด
+          </p>
+          <div class="text-xs text-cyan-400 font-mono">
+            Domain: <strong>dexxstore.online</strong>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-2">
+          <div class="font-orbitron font-bold text-white text-sm">เมนูเว็บไซต์</div>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="#top" class="hover:text-cyan-400 transition-colors">หน้าแรก</a></li>
+            <li><a href="#products" class="hover:text-cyan-400 transition-colors">สินค้าและบริการ</a></li>
+            <li><a href="#comparison" class="hover:text-cyan-400 transition-colors">เปรียบเทียบผลลัพธ์</a></li>
+            <li><a href="#why-us" class="hover:text-cyan-400 transition-colors">ทำไมต้อง DEXX</a></li>
+            <li><a href="#reviews" class="hover:text-cyan-400 transition-colors">รีวิวผู้ใช้งาน</a></li>
+            <li><a href="#faq" class="hover:text-cyan-400 transition-colors">คำถามที่พบบ่อย</a></li>
+          </ul>
+        </div>
+
+        <!-- Social & Contact -->
+        <div class="space-y-2">
+          <div class="font-orbitron font-bold text-white text-sm">ช่องทางการติดต่อ</div>
+          <ul class="space-y-2 text-xs">
+            <li>
+              <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="hover:text-indigo-400 flex items-center gap-2">
+                <i class="fa-brands fa-discord text-base text-indigo-400"></i> Discord Official
+              </a>
+            </li>
+            <li>
+              <span class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-headset text-cyan-400"></i> Support ตลอด 24 ชม.
+              </span>
+            </li>
+            <li>
+              <span class="text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-emerald-400"></i> ปรับระดับ Windows ปลอดภัย 100%
+              </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Terms -->
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div>
+          © 2026 <strong class="text-white">DEXXSTORE</strong> (dexxstore.online). All Rights Reserved.
+        </div>
+        <div class="flex items-center gap-4 text-slate-500">
+          <a href="javascript:void(0)" onclick="openModal('terms-modal')" class="hover:text-slate-300 transition-colors">ข้อตกลงและนโยบายการให้บริการ</a>
+          <span>•</span>
+          <a href="javascript:void(0)" onclick="openModal('terms-modal')" class="hover:text-slate-300 transition-colors">นโยบายความปลอดภัย</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== AUTH & ADMIN MODALS ==================== -->
+
+  <!-- 1. Discord Auth Modal -->
+  <div id="discord-auth-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-md modal-katana-box p-6 sm:p-8 space-y-6 text-center">
+      
+      <button data-close-modal="discord-auth-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900 border border-cyan-500/40 text-slate-400 hover:text-cyan-400 flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Discord Graphic -->
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-[#5865F2]/20 border-2 border-[#5865F2] flex items-center justify-center text-[#5865F2] text-3xl shadow-[0_0_30px_rgba(88,101,242,0.4)]">
+        <i class="fa-brands fa-discord"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="text-2xl font-black text-white font-orbitron italic">เข้าสู่ระบบด้วย Discord</h3>
+        <p class="text-xs text-slate-400">เชื่อมต่อบัญชี Discord เพื่อเข้าถึงบริการและระบบร้าน DEXXSTORE</p>
+      </div>
+
+      <!-- Quick Name & Discord ID Input -->
+      <div class="space-y-3 text-left">
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-300">ชื่อแสดงในระบบ (Discord Username)</label>
+          <input id="discord-login-username" type="text" placeholder="ระบุชื่อหรือปล่อยว่าง" class="cyber-input text-xs" value="DexxPlayer">
+        </div>
+
+        <div class="space-y-1">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-semibold text-slate-300">Discord User ID (สำหรับตรวจสิทธิ์ Admin)</label>
+            <span class="text-[10px] text-cyan-400 font-mono font-bold">Admin ID: 491549619587907585</span>
+          </div>
+          <input id="discord-login-id" type="text" placeholder="ระบุ Discord ID เช่น 491549619587907585" class="cyber-input text-xs font-mono" value="491549619587907585">
+        </div>
+      </div>
+
+      <!-- Quick 1-Click Login for Owner Discord ID: 491549619587907585 -->
+      <div class="p-3.5 rounded-xl bg-cyan-950/30 border border-cyan-500/40 text-left space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i class="fa-solid fa-crown text-amber-400"></i> สิทธิ์แอดมินเจ้าของร้าน (Owner)
+          </span>
+          <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 font-mono font-bold">AUTHORIZED</span>
+        </div>
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          Discord ID: <span class="text-cyan-300 font-mono font-bold">491549619587907585</span> ได้รับการอนุมัติสิทธิ์ Admin เต็มรูปแบบเรียบร้อยแล้ว
+        </p>
+        <button onclick="loginDiscord('admin', 'DEXX Owner (491549619587907585)', '491549619587907585')" class="btn-katana-primary text-xs w-full py-2.5 justify-center shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+          <i class="fa-solid fa-crown text-black"></i> เข้าสู่ระบบด้วย ID 491549619587907585 (Admin Owner)
+        </button>
+      </div>
+
+      <div class="space-y-2.5 pt-1">
+        <button onclick="loginDiscord('user', document.getElementById('discord-login-username').value, document.getElementById('discord-login-id').value)" class="btn-katana-discord text-sm w-full justify-center py-3">
+          <i class="fa-brands fa-discord text-lg"></i>
+          <span>เข้าสู่ระบบตาม ID ที่ระบุ (Login Discord)</span>
+        </button>
+
+        <button onclick="closeModal('discord-auth-modal'); openAdminPasscodeModal();" class="w-full text-xs text-slate-400 hover:text-cyan-400 py-1.5 flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-key"></i> เข้าสู่ระบบด้วยรหัส Admin สำรอง (Master Passcode)
+        </button>
+      </div>
+
+      <div class="text-[11px] text-slate-500 pt-2 border-t border-slate-800">
+        * เชื่อมต่อกับระบบทางการของ DEXXSTORE (dexxstore.online)
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. Admin Passcode Modal -->
+  <div id="admin-passcode-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-sm modal-katana-box p-6 space-y-5 text-center">
+      
+      <button data-close-modal="admin-passcode-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="w-14 h-14 mx-auto rounded-xl bg-red-500/20 border border-red-500/50 text-red-400 flex items-center justify-center text-2xl">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="text-xl font-black text-white font-orbitron italic">ADMIN PASSCODE</h3>
+        <p class="text-xs text-slate-400">กรอกรหัสผ่านเพื่อเข้าสู่โหมด Admin Dashboard</p>
+      </div>
+
+      <div class="space-y-2 text-left">
+        <input id="admin-pass-input" type="password" placeholder="ใส่รหัสผ่าน (ค่าเริ่มต้น: dexx2026)" class="cyber-input text-xs text-center tracking-widest font-mono" onkeydown="if(event.key === 'Enter') verifyAdminPasscode()">
+        <p id="admin-pass-error" class="text-xs text-red-400 hidden text-center font-bold">รหัสผ่านไม่ถูกต้อง! ลองใส่: dexx2026</p>
+      </div>
+
+      <div class="flex flex-col gap-2 pt-1">
+        <button onclick="verifyAdminPasscode()" class="btn-katana-primary text-xs w-full justify-center py-3">
+          <i class="fa-solid fa-unlock"></i> เข้าสู่ Dashboard Admin
+        </button>
+        <button onclick="loginDiscord('admin', 'DEXX Admin')" class="text-xs text-cyan-400 hover:underline py-1">
+          ⚡ ล็อกอิน Admin แบบ One-Click
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. Full Featured Admin Dashboard Modal (Can Edit All) -->
+  <div id="admin-dashboard-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-5xl h-[92vh] flex flex-col modal-katana-box p-0 overflow-hidden shadow-2xl border-2 border-cyan-400">
+      
+      <!-- Dashboard Header -->
+      <div class="px-6 py-4 bg-[#030611] border-b border-cyan-500/30 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-red-500/20 border border-red-500/50 text-red-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <div>
+            <h2 class="text-lg font-black text-white font-orbitron italic tracking-wide flex items-center gap-2">
+              DEXXSTORE <span class="text-cyan-400">ADMIN CONTROL PANEL</span>
+            </h2>
+            <p class="text-[11px] text-slate-400 font-mono">ระบบจัดการหลังบ้าน แก้ไขได้ทุกจุด (Live Editable Database)</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="exportDatabaseJSON()" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-bold text-slate-300 hover:text-cyan-400" title="ส่งออกไฟล์ข้อมูลสำรอง">
+            <i class="fa-solid fa-download mr-1"></i> ส่งออก JSON
+          </button>
+          <button data-close-modal="admin-dashboard-modal" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dashboard Layout: Sidebar + Main Workspace -->
+      <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+        
+        <!-- Sidebar Navigation -->
+        <div class="w-full md:w-64 bg-[#020409]/95 border-b md:border-b-0 md:border-r border-slate-800 p-3 space-y-1.5 shrink-0 overflow-y-auto">
+          <div class="text-[10px] uppercase font-bold text-slate-500 px-3 pt-2 pb-1 font-orbitron tracking-wider">
+            เมนูการจัดการ
+          </div>
+          <button onclick="switchAdminTab('products')" class="admin-tab-btn active" data-tab="products">
+            <i class="fa-solid fa-box-open text-cyan-400 w-5"></i>
+            <span>จัดการสินค้า (Products)</span>
+          </button>
+          <button onclick="switchAdminTab('settings')" class="admin-tab-btn" data-tab="settings">
+            <i class="fa-solid fa-sliders text-cyan-400 w-5"></i>
+            <span>ตั้งค่าหน้าเว็บ & Hero</span>
+          </button>
+          <button onclick="switchAdminTab('ticker')" class="admin-tab-btn" data-tab="ticker">
+            <i class="fa-solid fa-bullhorn text-cyan-400 w-5"></i>
+            <span>แถบประกาศวิ่ง (Ticker)</span>
+          </button>
+          <button onclick="switchAdminTab('reviews')" class="admin-tab-btn" data-tab="reviews">
+            <i class="fa-solid fa-star text-cyan-400 w-5"></i>
+            <span>จัดการรีวิว (Reviews)</span>
+          </button>
+          <button onclick="switchAdminTab('faqs')" class="admin-tab-btn" data-tab="faqs">
+            <i class="fa-solid fa-circle-question text-cyan-400 w-5"></i>
+            <span>คำถามที่พบบ่อย (FAQs)</span>
+          </button>
+          <button onclick="switchAdminTab('admins')" class="admin-tab-btn" data-tab="admins">
+            <i class="fa-solid fa-user-shield text-cyan-400 w-5"></i>
+            <span>สิทธิ์แอดมิน (Discord IDs)</span>
+          </button>
+          <button onclick="switchAdminTab('backup')" class="admin-tab-btn" data-tab="backup">
+            <i class="fa-solid fa-database text-cyan-400 w-5"></i>
+            <span>สำรอง & รีเซ็ตข้อมูล</span>
+          </button>
+        </div>
+
+        <!-- Main Workspace Panes -->
+        <div class="flex-1 p-5 sm:p-7 overflow-y-auto bg-[#040814]/70">
+          
+          <!-- TAB 1: Products Manager -->
+          <div id="tab-pane-products" class="admin-tab-pane space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div>
+                <h3 class="text-xl font-black text-white font-orbitron">คลังสินค้า (Manage Products)</h3>
+                <p class="text-xs text-slate-400">แก้ไขชื่อ ราคา รูปภาพ รายละเอียด และแพ็กเกจสินค้า</p>
+              </div>
+              <button onclick="editProductModal(null)" class="btn-katana-primary text-xs py-2 px-4">
+                <i class="fa-solid fa-plus"></i> เพิ่มสินค้าใหม่
+              </button>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>รูปภาพ</th>
+                    <th>ชื่อสินค้า & หมวดหมู่</th>
+                    <th>ราคา</th>
+                    <th>ป้ายกำกับ</th>
+                    <th class="text-right">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-products-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 2: General Settings -->
+          <div id="tab-pane-settings" class="admin-tab-pane hidden space-y-6">
+            <div class="pb-3 border-b border-slate-800">
+              <h3 class="text-xl font-black text-white font-orbitron">ตั้งค่าข้อมูลหน้าเว็บ & Hero</h3>
+              <p class="text-xs text-slate-400">แก้ไขหัวข้อหลัก คำบรรยาย ลิงก์ Discord และตัวเลขสถิติ</p>
+            </div>
+
+            <form onsubmit="saveAdminSettings(event)" class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-slate-300">ชื่อเว็บไซต์ (Site Name)</label>
+                  <input id="set-sitename" type="text" class="cyber-input text-xs">
+                </div>
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-slate-300">โดเมน (Domain)</label>
+                  <input id="set-domain" type="text" class="cyber-input text-xs">
+                </div>
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-slate-300">ลิงก์ Discord Invite</label>
+                  <input id="set-discord" type="text" class="cyber-input text-xs font-mono">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-slate-300">Hero หัวข้อหลัก บรรทัดที่ 1</label>
+                  <input id="set-h1" type="text" class="cyber-input text-xs">
+                </div>
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-slate-300">Hero หัวข้อหลัก บรรทัดที่ 2 (เรืองแสง)</label>
+                  <input id="set-h2" type="text" class="cyber-input text-xs">
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">Hero สโลแกนรอง</label>
+                <input id="set-sub" type="text" class="cyber-input text-xs">
+              </div>
+
+              <div class="space-y-1">
+                <label class="text-xs font-semibold text-slate-300">คำบรรยายหน้าร้าน (Hero Description)</label>
+                <textarea id="set-desc" rows="3" class="cyber-input text-xs"></textarea>
+              </div>
+
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-cyan-400">สถิติ FPS Boost</label>
+                  <input id="set-stat-fps" type="text" class="cyber-input text-xs text-center font-bold">
+                </div>
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-sky-400">สถิติ Input Lag</label>
+                  <input id="set-stat-lag" type="text" class="cyber-input text-xs text-center font-bold">
+                </div>
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-emerald-400">สถิติ ค่าขาว</label>
+                  <input id="set-stat-safe" type="text" class="cyber-input text-xs text-center font-bold">
+                </div>
+                <div class="space-y-1">
+                  <label class="text-xs font-semibold text-indigo-400">สถิติ ลูกค้า</label>
+                  <input id="set-stat-users" type="text" class="cyber-input text-xs text-center font-bold">
+                </div>
+              </div>
+
+              <div class="pt-4 flex justify-end">
+                <button type="submit" class="btn-katana-primary text-xs px-6 py-3">
+                  <i class="fa-solid fa-floppy-disk"></i> บันทึกการเปลี่ยนแปลงหน้าเว็บ
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- TAB 3: Ticker Manager -->
+          <div id="tab-pane-ticker" class="admin-tab-pane hidden space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div>
+                <h3 class="text-xl font-black text-white font-orbitron">แถบประกาศวิ่ง (Marquee Ticker)</h3>
+                <p class="text-xs text-slate-400">เพิ่ม/ลบ ข้อความประกาศวิ่งที่พาดผ่านกลางหน้าเว็บ</p>
+              </div>
+              <button onclick="addTickerItem()" class="btn-katana-primary text-xs py-2 px-3.5">
+                <i class="fa-solid fa-plus"></i> เพิ่มข้อความประกาศ
+              </button>
+            </div>
+
+            <div id="admin-ticker-list" class="space-y-2.5"></div>
+          </div>
+
+          <!-- TAB 4: Reviews Manager -->
+          <div id="tab-pane-reviews" class="admin-tab-pane hidden space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div>
+                <h3 class="text-xl font-black text-white font-orbitron">จัดการรีวิวลูกค้า (Reviews)</h3>
+                <p class="text-xs text-slate-400">เพิ่ม ลบ หรือแก้ไขข้อความรีวิวและชื่อผู้ใช้</p>
+              </div>
+              <button onclick="addReviewItem()" class="btn-katana-primary text-xs py-2 px-3.5">
+                <i class="fa-solid fa-plus"></i> เพิ่มรีวิวใหม่
+              </button>
+            </div>
+
+            <div id="admin-reviews-list" class="space-y-3"></div>
+          </div>
+
+          <!-- TAB 5: FAQs Manager -->
+          <div id="tab-pane-faqs" class="admin-tab-pane hidden space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div>
+                <h3 class="text-xl font-black text-white font-orbitron">คำถามที่พบบ่อย (FAQs)</h3>
+                <p class="text-xs text-slate-400">เพิ่มหรือแก้ไขคำถาม-คำตอบที่แสดงบนหน้าเว็บ</p>
+              </div>
+              <button onclick="addFAQItem()" class="btn-katana-primary text-xs py-2 px-3.5">
+                <i class="fa-solid fa-plus"></i> เพิ่มคำถามใหม่
+              </button>
+            </div>
+
+            <div id="admin-faqs-list" class="space-y-3"></div>
+          </div>
+
+          <!-- TAB 6: Backup & Reset -->
+          <div id="tab-pane-backup" class="admin-tab-pane hidden space-y-6">
+            <div class="pb-3 border-b border-slate-800">
+              <h3 class="text-xl font-black text-white font-orbitron">สำรอง & จัดการฐานข้อมูล (Database)</h3>
+              <p class="text-xs text-slate-400">ข้อมูลทั้งหมดถูกบันทึกและรันบนเครื่องของคุณอย่างปลอดภัย</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 text-center">
+                <i class="fa-solid fa-file-arrow-down text-3xl text-cyan-400"></i>
+                <div class="font-bold text-white text-sm">ส่งออกข้อมูล JSON</div>
+                <p class="text-xs text-slate-400">ดาวน์โหลดการตั้งค่าและรายการสินค้าทั้งหมดเก็บไว้สำรอง</p>
+                <button onclick="exportDatabaseJSON()" class="btn-katana-primary text-xs w-full py-2.5 justify-center">
+                  ดาวน์โหลดไฟล์ JSON
+                </button>
+              </div>
+
+              <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 text-center">
+                <i class="fa-solid fa-file-arrow-up text-3xl text-blue-400"></i>
+                <div class="font-bold text-white text-sm">นำเข้าข้อมูล JSON</div>
+                <p class="text-xs text-slate-400">อัปโหลดไฟล์ JSON ที่สำรองไว้เพื่อกู้คืนข้อมูล</p>
+                <button onclick="importDatabaseJSON()" class="btn-katana-outline text-xs w-full py-2.5 justify-center">
+                  เลือกไฟล์ JSON
+                </button>
+              </div>
+
+              <div class="p-5 rounded-xl bg-slate-900 border border-red-500/30 space-y-3 text-center">
+                <i class="fa-solid fa-rotate-left text-3xl text-red-400"></i>
+                <div class="font-bold text-white text-sm">รีเซ็ตเป็นค่าเริ่มต้น</div>
+                <p class="text-xs text-slate-400">ล้างการแก้ไขทั้งหมดและนำข้อมูลออริจินัลของ DEXXSTORE กลับมา</p>
+                <button onclick="resetToDefaultDB()" class="px-4 py-2.5 text-xs font-bold rounded-lg bg-red-500/20 text-red-400 border border-red-500/50 hover:bg-red-500/40 w-full">
+                  รีเซ็ตค่าเริ่มต้น
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 7: Admin Discord Permissions -->
+          <div id="tab-pane-admins" class="admin-tab-pane hidden space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div>
+                <h3 class="text-xl font-black text-white font-orbitron">จัดการสิทธิ์แอดมิน (Admin Discord IDs)</h3>
+                <p class="text-xs text-slate-400">กำหนด Discord User ID ที่ได้รับสิทธิ์เข้าถึงแผงควบคุมหลังบ้าน DEXXSTORE</p>
+              </div>
+            </div>
+
+            <!-- Add New Admin ID Form -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-cyan-500/30 space-y-3">
+              <label class="text-xs font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-user-plus text-cyan-400"></i> เพิ่ม Discord ID ผู้ดูแลระบบใหม่
+              </label>
+              <div class="flex flex-col sm:flex-row items-center gap-2.5">
+                <input id="new-admin-discord-id" type="text" placeholder="ระบุ Discord User ID (เช่น 491549619587907585)" class="cyber-input text-xs font-mono flex-1">
+                <button onclick="addAdminDiscordId()" class="btn-katana-primary text-xs py-2.5 px-5 w-full sm:w-auto shrink-0 justify-center">
+                  <i class="fa-solid fa-shield-halved"></i> เพิ่มสิทธิ์ Admin
+                </button>
+              </div>
+              <p class="text-[11px] text-slate-400">
+                <i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i> วิธีดู Discord User ID: ใน Discord ไปที่ Settings -> Advanced -> เปิด Developer Mode -> คลิกขวาที่ชื่อโปรไฟล์แล้วกด "Copy User ID"
+              </p>
+            </div>
+
+            <!-- Admin List -->
+            <div class="space-y-3">
+              <div class="text-xs font-bold text-slate-300 font-orbitron flex items-center justify-between">
+                <span>รายชื่อ Discord ID ที่ได้รับสิทธิ์ Admin ปัจจุบัน</span>
+                <span class="text-[10px] text-cyan-400 font-mono">Real-time Permissions</span>
+              </div>
+              <div id="admin-discord-ids-list" class="space-y-2.5"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. Product Editor Modal (For adding / editing products) -->
+  <div id="product-editor-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto modal-katana-box p-6 sm:p-8 space-y-5">
+      
+      <button data-close-modal="product-editor-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="space-y-1">
+        <h3 class="text-xl font-black text-white font-orbitron italic">แก้ไข / เพิ่มสินค้า DEXXSTORE</h3>
+        <p class="text-xs text-slate-400">กรอกข้อมูลสินค้าเพื่ออัปเดตขึ้นหน้าร้านทันที</p>
+      </div>
+
+      <form id="product-edit-form" onsubmit="saveProductForm(event)" class="space-y-4">
+        <input type="hidden" id="prod-edit-id">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ชื่อสินค้า (Product Name)</label>
+            <input id="prod-edit-name" type="text" required class="cyber-input text-xs" placeholder="เช่น DEXX V3 (PRO)">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">หมวดหมู่ (Category ID)</label>
+            <select id="prod-edit-category" class="cyber-input text-xs">
+              <option value="fivem">FiveM & GTA V (fivem)</option>
+              <option value="cpu">CPU & Hardware (cpu)</option>
+              <option value="tweak">Windows & Network (tweak)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ป้ายหมวดหมู่แสดง</label>
+            <input id="prod-edit-catlabel" type="text" class="cyber-input text-xs" placeholder="เช่น FiveM & GTA V">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-cyan-400">ราคาตัวเลข (บาท)</label>
+            <input id="prod-edit-price" type="number" required class="cyber-input text-xs font-orbitron font-bold" placeholder="299">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ป้ายราคาแสดง</label>
+            <input id="prod-edit-pricelabel" type="text" class="cyber-input text-xs font-orbitron" placeholder="฿299">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">ป้าย Badge เด่น (เช่น 🔥 ยอดนิยม)</label>
+            <input id="prod-edit-badge" type="text" class="cyber-input text-xs">
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-300">URL / พาธรูปภาพโปสเตอร์</label>
+            <input id="prod-edit-image" type="text" required class="cyber-input text-xs font-mono" placeholder="assets/images/product-dexxv3.jpg">
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-300">คำโปรยใต้ชื่อ (Subtitle)</label>
+          <input id="prod-edit-subtitle" type="text" class="cyber-input text-xs" placeholder="ตัวช่วยปรับแต่งระบบเกม ออกแบบมาเพื่อ FiveM">
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-300">สโลแกนสินค้า (Tagline)</label>
+          <input id="prod-edit-tagline" type="text" class="cyber-input text-xs" placeholder="เล่นง่ายมากขึ้น ค่าขาว 100% — PLAY SMOOTH NO LAG">
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-300">รายการฟีเจอร์เด่น (1 บรรทัดต่อ 1 ฟีเจอร์)</label>
+          <textarea id="prod-edit-features" rows="4" class="cyber-input text-xs font-mono"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-3 border-t border-slate-800">
+          <button type="button" data-close-modal="product-editor-modal" class="btn-katana-outline text-xs px-5 py-2.5">
+            ยกเลิก
+          </button>
+          <button type="submit" class="btn-katana-primary text-xs px-6 py-2.5">
+            <i class="fa-solid fa-floppy-disk"></i> บันทึกข้อมูลสินค้า
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- 5. Product Detail Modal (Public View) -->
+  <div id="product-detail-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto modal-katana-box p-6 sm:p-8 space-y-6">
+      
+      <button data-close-modal="product-detail-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900 border border-cyan-500/40 text-slate-400 hover:text-cyan-400 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pb-4 border-b border-slate-800">
+        <img id="modal-p-img" src="" alt="Product Preview" class="w-20 h-20 object-cover border border-cyan-400 cursor-pointer" onclick="openLightbox(this.src, document.getElementById('modal-p-title').textContent)" style="clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);">
+        <div class="space-y-1">
+          <span id="modal-p-badge" class="px-2.5 py-0.5 text-[11px] font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30"></span>
+          <h3 id="modal-p-title" class="text-2xl font-black text-white font-orbitron italic"></h3>
+          <p id="modal-p-subtitle" class="text-xs text-slate-300"></p>
+        </div>
+      </div>
+
+      <div class="p-3.5 bg-cyan-950/20 border border-cyan-500/30 text-xs text-cyan-300 italic flex items-center gap-2">
+        <i class="fa-solid fa-bolt text-cyan-400"></i>
+        <span id="modal-p-tagline"></span>
+      </div>
+
+      <div class="space-y-2">
+        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider font-orbitron">จุดเด่นและการตั้งค่า</div>
+        <ul id="modal-p-features" class="space-y-2"></ul>
+      </div>
+
+      <div class="space-y-2 pt-2">
+        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider font-orbitron">เลือกแพ็กเกจที่ต้องการ</div>
+        <div id="modal-p-options" class="space-y-2"></div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800">
+        <div>
+          <span class="text-xs text-slate-400">ราคาสุทธิ</span>
+          <div id="modal-p-price" class="text-3xl font-black text-cyan-400 font-orbitron"></div>
+        </div>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button data-close-modal="product-detail-modal" class="btn-katana-outline text-xs px-4 py-3 w-full sm:w-auto">
+            ปิด
+          </button>
+          <button onclick="openOrderModal()" class="btn-katana-primary text-xs px-6 py-3 w-full sm:w-auto">
+            <i class="fa-solid fa-cart-shopping"></i> ไปที่หน้าสั่งซื้อ
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6. Quick Order / Checkout Modal -->
+  <div id="order-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-xl max-h-[90vh] overflow-y-auto modal-katana-box p-6 sm:p-8 space-y-6">
+      
+      <button data-close-modal="order-modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900 border border-cyan-500/40 text-slate-400 hover:text-cyan-400 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="space-y-1">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[11px] font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-400/40">
+          <i class="fa-solid fa-cart-shopping"></i> สั่งซื้อสินค้า & นัด REMOTE SETUP
+        </div>
+        <h3 class="text-2xl font-black text-white font-orbitron italic">ขั้นตอนการสั่งซื้อ DEXXSTORE</h3>
+        <p class="text-xs text-slate-400">สั่งซื้อง่ายๆ ใน 3 สเต็ป ทีมงานดูแลผ่าน Discord 24 ชั่วโมง</p>
+      </div>
+
+      <div class="p-4 bg-slate-900/80 border border-cyan-500/30 flex items-center gap-4">
+        <img id="order-item-img" src="" alt="Product" class="w-16 h-16 object-cover border border-cyan-400" style="clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);">
+        <div class="space-y-0.5">
+          <div id="order-item-name" class="font-bold text-white text-base"></div>
+          <div id="order-item-plan" class="text-xs text-cyan-400"></div>
+          <div id="order-item-price" class="text-lg font-black text-white font-orbitron"></div>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300">
+        <div class="flex items-start gap-3 p-3 bg-slate-900/40 border border-slate-800">
+          <span class="w-6 h-6 bg-cyan-400 text-black flex items-center justify-center font-bold text-xs shrink-0 font-orbitron">1</span>
+          <div>
+            <strong class="text-white">กดปุ่ม "คัดลอกข้อความสั่งซื้อ"</strong> ด้านล่างเพื่อนำไปส่งให้ทีมงาน
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-3 bg-slate-900/40 border border-slate-800">
+          <span class="w-6 h-6 bg-cyan-400 text-black flex items-center justify-center font-bold text-xs shrink-0 font-orbitron">2</span>
+          <div>
+            <strong class="text-white">เข้าร่วม Discord Server</strong> และเปิด Ticket แผนกสั่งซื้อสินค้า
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-3 bg-slate-900/40 border border-slate-800">
+          <span class="w-6 h-6 bg-cyan-400 text-black flex items-center justify-center font-bold text-xs shrink-0 font-orbitron">3</span>
+          <div>
+            <strong class="text-white">ชำระเงิน & แจ้ง UltraViewer</strong> แอดมินจะรีโมทเข้าปรับแต่งให้ทันทีใน 3-5 นาที
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between text-xs text-slate-400 font-medium">
+          <span>ข้อความที่พร้อมส่งใน Ticket Discord:</span>
+          <button onclick="copyOrderTicket()" class="text-cyan-400 hover:underline flex items-center gap-1 font-bold">
+            <i class="fa-regular fa-copy"></i> คัดลอก
+          </button>
+        </div>
+        <textarea id="order-ticket-preview" rows="4" readonly class="w-full p-3 bg-slate-900 border border-cyan-500/40 text-xs font-mono text-cyan-300 focus:outline-none select-all resize-none"></textarea>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+        <button onclick="copyOrderTicket()" class="btn-katana-outline text-xs w-full sm:w-1/2 py-3 justify-center">
+          <i class="fa-regular fa-copy"></i> คัดลอกข้อความ
+        </button>
+        <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="btn-katana-discord text-xs w-full sm:w-1/2 py-3 justify-center">
+          <i class="fa-brands fa-discord text-base"></i> ไปที่ Discord Server
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 7. Image Lightbox Modal -->
+  <div id="lightbox-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0" onclick="closeModal('lightbox-modal')"></div>
+    <div class="relative z-10 max-w-4xl max-h-[92vh] flex flex-col items-center">
+      <button data-close-modal="lightbox-modal" class="absolute -top-12 right-0 w-10 h-10 bg-black/80 border border-cyan-500/50 text-white flex items-center justify-center hover:text-cyan-400 transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <img id="lightbox-img" src="" alt="Poster" class="max-w-full max-h-[82vh] object-contain border-2 border-cyan-400 shadow-[0_0_50px_rgba(0,240,255,0.4)]">
+      <div id="lightbox-caption" class="text-center text-sm font-bold text-slate-300 mt-3 font-orbitron tracking-wider"></div>
+    </div>
+  </div>
+
+  <!-- 8. Terms of Service Modal -->
+  <div id="terms-modal" class="modal-container hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="modal-katana-backdrop fixed inset-0"></div>
+    <div class="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto modal-katana-box p-6 sm:p-8 space-y-5 text-slate-300 text-sm">
+      
+      <button data-close-modal="terms-modal" class="absolute top-4 right-4 w-9 h-9 bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="space-y-1">
+        <h3 class="text-2xl font-black text-white font-orbitron italic">ข้อตกลงและเงื่อนไขการใช้บริการ</h3>
+        <p class="text-xs text-cyan-400 font-mono">DEXXSTORE (dexxstore.online) · อัปเดตล่าสุด 2026</p>
+      </div>
+
+      <div class="space-y-4 text-xs leading-relaxed text-slate-300 border-t border-slate-800 pt-4">
+        <div>
+          <h4 class="font-bold text-white text-sm">1. ลักษณะของสินค้าและบริการ</h4>
+          <p>สินค้าทั้งหมดของ DEXXSTORE เป็นสินค้าดิจิทัล (Digital Services & Software Optimization) การปรับแต่งดำเนินการในระดับ Windows System, Registry และ Network โดยตรง ส่งมอบและดูแลผ่านทาง Discord ทางการเท่านั้น</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm">2. นโยบายความปลอดภัยและค่าขาว</h4>
+          <p>สินค้าทั้งหมดถือเป็น ค่าขาว 100% ไม่มีการดัดแปลงไฟล์เกม ไม่ใช่โปรแกรมโกง (Cheat/Hack/Mod Menu) และไม่มีความเสี่ยงในการโดนแบนจากระบบตรวจจับ Anti-Cheat สากล</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm">3. การสนับสนุนและการรับประกัน</h4>
+          <p>ทีมงานพร้อมให้บริการ Remote Setup ให้คำแนะนำ และแก้ไขปัญหาผ่านทาง Discord ตลอด 24 ชั่วโมง หากมีข้อผิดพลาดหรือเกิดปัญหาระบบ ลูกค้าสามารถแจ้งให้ทีมงานตรวจสอบและแก้ไขให้โดยไม่มีค่าใช้จ่ายเพิ่มเติม</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm">4. นโยบายการคืนเงิน</h4>
+          <p>เนื่องจากเป็นสินค้าดิจิทัลและบริการปรับแต่งแบบ Remote Setup เมื่อได้รับการติดตั้งหรือส่งมอบ License แล้ว ไม่สามารถขอคืนเงินได้ทุกกรณี ยกเว้นเกิดข้อผิดพลาดจากทางร้านที่ไม่สามารถใช้งานได้จริงตามเงื่อนไขที่ตกลงไว้</p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-800 flex justify-end">
+        <button data-close-modal="terms-modal" class="btn-katana-primary text-xs px-6 py-2.5">
+          รับทราบและเข้าใจข้อตกลง
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Banner -->
+  <div id="toast-banner" class="toast-katana">
+    <i id="toast-icon" class="fa-solid fa-circle-check text-cyan-400 text-lg"></i>
+    <span id="toast-message" class="text-xs font-semibold"></span>
+  </div>
+
+  <!-- Floating Discord Button (Bottom Right) -->
+  <a href="https://discord.gg/qhNQGnuDtu" target="_blank" class="fixed bottom-6 right-6 z-40 group flex items-center gap-3 p-3.5 bg-gradient-to-r from-[#5865F2] to-[#3b45b0] text-white shadow-[0_0_30px_rgba(88,101,242,0.7)] hover:scale-105 transition-all duration-300" style="clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);">
+    <i class="fa-brands fa-discord text-2xl group-hover:rotate-12 transition-transform"></i>
+    <span class="hidden md:inline font-bold text-xs pr-1">เข้าร่วม Discord</span>
+  </a>
+
+  <!-- Frontend Javascript & Admin Engine -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
